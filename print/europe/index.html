@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Polycom Printers - Europe</title>
+    <link rel="stylesheet" href="../assets/css/jquery-jvectormap-2.0.3.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../assets/css/global.css" type="text/css" />
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/jquery-jvectormap-2.0.3.min.js"></script>
+    <script src="../assets/maps/jquery-jvectormap-europe-mill.js"></script>
+</head>
+
+<body>
+    <div class="title">
+        <div>
+            <h1 class="page-title">Select a Region</h1> </div>
+    </div>
+    <div id="world-map" style="width: 70%; height: 750px; margin:auto; padding:10px;"></div>
+    <script>
+        $(function() {
+            $('#world-map').vectorMap({
+                map: 'europe_mill',
+                onRegionClick: function(event, code) {
+                    if (code == "RU") {
+                        window.location = 'russia'
+                    }
+                    if (code == "GB") {
+                        window.location = 'united-kingdom'
+                    }
+                    if (code == "NL") {
+                        window.location = 'netherlands'
+                    }
+                    if (code == "DE") {
+                        window.location = 'germany'
+                    }
+                    if (code == "BE") {
+                        window.location = 'belgium'
+                    }
+                    if (code == "DK") {
+                        window.location = 'denmark'
+                    }
+					if (code == "FI") {
+                        window.location = 'finland'
+                    }
+					if (code == "FR") {
+                        window.location = 'france'
+                    }
+                },
+            });
+        });
+    </script>
+</body>
+
+</html>
