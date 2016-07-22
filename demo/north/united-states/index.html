@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Polycom Printers</title>
+    <link rel="stylesheet" href="../../assets/css/jquery-jvectormap-2.0.3.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../assets/css/global.css" type="text/css" />
+    <script src="../../assets/js/jquery.js"></script>
+    <script src="../../assets/js/jquery-jvectormap-2.0.3.min.js"></script>
+    <script src="../../assets/maps/jquery-jvectormap-ca-lcc.js"></script>
+</head>
+
+<body>
+    <div class="title">
+        <div>
+            <h1 class="page-title">Select a Country</h1> </div>
+    </div>
+    <div id="map" style="width: 70%; height: 750px; margin:auto; padding:10px;"></div>
+    <script>
+        $(function() {
+            $('#map').vectorMap({
+                map: 'ca_lcc',
+                onRegionClick: function(event, code) {
+                    if (code == "CA") {
+                        window.location = 'canada'
+                    }
+                    if (code == "US") {
+                        window.location = 'united-states'
+                    }
+                },
+                markerStyle: {
+                    initial: {
+                        fill: '#F8E23B',
+                        stroke: '#383f47'
+                    }
+                },
+                markers: [{
+                    latLng: [43.65, -79.38],
+                    name: 'Toronto, Ontario'
+                }],
+            });
+        });
+    </script>
+</body>
+
+</html>

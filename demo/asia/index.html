@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Polycom Printers</title>
+    <link rel="stylesheet" href="../assets/css/jquery-jvectormap-2.0.3.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../assets/css/global.css" type="text/css" />
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/jquery-jvectormap-2.0.3.min.js"></script>
+    <script src="../assets/maps/jquery-jvectormap-asia-mill.js"></script>
+</head>
+
+<body>
+    <div class="title">
+        <div>
+            <h1 class="page-title">Select a Region</h1> </div>
+    </div>
+    <div id="world-map" style="width: 70%; height: 750px; margin:auto; padding:10px;"></div>
+    <script>
+        $(function() {
+            $('#world-map').vectorMap({
+                map: 'asia_mill',
+                onRegionClick: function(event, code) {
+                    if (code == "SA") {
+                        window.location = 'saudi-arabia'
+                    }
+                    if (code == "TR") {
+                        window.location = 'turkey'
+                    }
+                    if (code == "AE") {
+                        window.location = 'united-arab-emirates'
+                    }
+                    if (code == "CN") {
+                        window.location = 'china'
+                    }
+                    if (code == "ID") {
+                        window.location = 'indonesia'
+                    }
+                    if (code == "JP") {
+                        window.location = 'japan'
+                    }
+					if (code == "MY") {
+                        window.location = 'malaysia'
+                    }
+					if (code == "PH") {
+                        window.location = 'philippines'
+                    }
+					if (code == "TH") {
+                        window.location = 'thailand'
+                    }
+					if (code == "VN") {
+                        window.location = 'vietnam'
+                    }
+                },
+            });
+        });
+    </script>
+</body>
+
+</html>
