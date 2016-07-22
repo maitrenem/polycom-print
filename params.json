@@ -1,0 +1,6 @@
+{
+  "name": "Polycom-print",
+  "tagline": "Small website to find your local printer. Made for Polycom Inc.",
+  "body": "### How to Use\r\nUsing this is as easy as knowing where you are. Simply click on the country, region, or office to use your local printer.\r\n\r\n### Demo\r\nA live example is available [here](#), and should be up to date.\r\n\r\n### Support or Contact\r\nHaving trouble with the site? Check out our [documentation](https://github.com/izaclorimer/polycom-print/wiki) or [contact me](mailto:electricgord@gmail.com) and I’ll help you sort it out.\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
