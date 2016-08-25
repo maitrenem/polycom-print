@@ -11,14 +11,16 @@
 </head>
 
 <body>
-    <div class="title">
-        <div>
-            <h1 class="page-title">Select a Country</h1> </div>
-    </div>
-    <div id="world-map" style="width: 70%; height: 750px; margin:auto; padding:10px;"></div>
+    <div id="map" style="width: 70%; height: 750px; margin:auto; padding:10px;"></div>
+    <script>
+        var width = $(window).width() - 20;
+        $("#map").width(width);
+        var height = $(window).height() - 20;
+        $("#map").height(height);
+    </script>
     <script>
         $(function() {
-            $('#world-map').vectorMap({
+            $('#map').vectorMap({
                 map: 'oceania_mill',
                 onRegionClick: function(event, code) {
                     if (code == "AU") {
