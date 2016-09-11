@@ -19,9 +19,47 @@
         $("#map").height(height);
     </script>
     <script>
+	var markers = [{
+		latLng: [12.971599,77.594563],
+		name: 'Bangalore',
+		runCommand: ''
+	}, {
+		latLng: [39.904211,116.407395],
+		name: 'Beijing PCTC/SSC',
+		runCommand: ''
+	}, {
+		latLng: [39.967821,116.276508],
+		name: 'Beijing Sales',
+		runCommand: ''
+	}, {
+		latLng: [23.12911,113.264385],
+		name: 'Guangzhou',
+		runCommand: ''
+	}, {
+		latLng: [17.385044,78.486671],
+		name: 'Hyderabad',
+		tunCommand: ''
+	}, {
+		latLng: [31.230416,121.473701],
+		name: 'Shanghai',
+		runCommand: ''
+	}, {
+		latLng: [1.352083,103.819836],
+		name: 'Singapore',
+		runCommand: ''
+	}, {
+		latLng: [35.689488,139.691706],
+		name: 'Tokyo',
+		runCommand: ''
+	}, {
+            latLng: [31.046051, 34.851612],
+            name: 'Israel',
+            runCommand: ''
+        }];
         $(function() {
             $('#map').vectorMap({
                 map: 'asia_mill',
+				/* Too many options, using markers instead. Also, if needed later, change to switch case.
                 onRegionClick: function(event, code) {
                     if (code == "SA") {
                         window.location = 'saudi-arabia'
@@ -53,7 +91,23 @@
                     if (code == "VN") {
                         window.location = 'vietnam'
                     }
+                },*/
+				// Set the colors for the markers.
+                markerStyle: {
+                    initial: {
+                        fill: '#d71920',
+                        stroke: '#717f8c',
+                        //image: '../../favicon.ico'
+                    }
                 },
+                markers: markers,
+                onMarkerClick: function(event, index) {
+                    // Apply actions depending on locations.
+                    //Show an alert with run command.
+                    alert("Paste this in the Run dialog. " + markers[index].runCommand);
+                    //Open a local file in a new tab.
+                    //window.open('file:///local/file/here')
+                }
             });
         });
     </script>

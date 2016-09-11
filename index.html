@@ -4,9 +4,9 @@
 <head>
     <title>Polycom Printers</title>
     <link rel="stylesheet" href="assets/css/jquery-jvectormap-2.0.3.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="assets/css/global.css" type="text/css" />
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/jquery-jvectormap-2.0.3.min.js"></script>
+    <!-- Load Map File -->
     <script src="assets/maps/jquery-jvectormap-continents-mill.js"></script>
 </head>
 
@@ -17,35 +17,39 @@
             <h1 class="page-title">Select a Region</h1> </div>
     </div>
         -->
-    <div id="map" style="width: 70%; height: 750px; margin:auto; padding:10px;"></div>
+    <!-- Create div for map-->
+    <div id="map"></div>
+    <!-- Resize div according to the client's screen size -->
     <script>
-        var width = $(window).width() - 20;
+        var width = $(window).width() - 16;
         $("#map").width(width);
-        var height = $(window).height() - 20;
+        var height = $(window).height() - 16;
         $("#map").height(height);
     </script>
+    <!-- Script to load map -->
     <script>
         $(function() {
             $('#map').vectorMap({
                 map: 'continents_mill',
+                // When * is clicked, go to *.
                 onRegionClick: function(event, code) {
                     if (code == "AF") {
-                        window.location = '/africa-temp'
+                        window.location = ''
                     }
                     if (code == "NA") {
-                        window.location = '/north-temp'
+                        window.location = 'north'
                     }
                     if (code == "OC") {
-                        window.location = '/asia-temp'
+                        window.location = 'oceania'
                     }
                     if (code == "AS") {
-                        window.location = '/asia-temp'
+                        window.location = 'asia'
                     }
                     if (code == "EU") {
-                        window.location = '/europe-temp'
+                        window.location = 'europe'
                     }
                     if (code == "SA") {
-                        window.location = '/south'
+                        window.location = 'south'
                     }
                 },
             });

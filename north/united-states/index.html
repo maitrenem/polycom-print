@@ -3,6 +3,8 @@
 
 <head>
     <title>Polycom Printers</title>
+    <meta name="author" content="Izac Lorimer">
+    <!-- Created in 2016 for Polycom Inc. -->
     <link rel="stylesheet" href="../../assets/css/jquery-jvectormap-2.0.3.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="../../assets/css/global.css" type="text/css" />
     <script src="../../assets/js/jquery.js"></script>
@@ -19,17 +21,47 @@
         $("#map").height(height);
     </script>
     <script>
+        var markers = [{
+            latLng: [42.678814, -71.199523],
+            name: 'Andover',
+            runCommand: '\\\\andpRntprd01'
+        }, {
+            latLng: [30.459514, -97.751316],
+            name: 'Austin',
+            runCommand: '\\\\auswpprnt01v'
+        }, {
+            latLng: [39.836653, -105.037205],
+            name: 'Westminster',
+            runCommand: '\\\\Wstwpprnt01v'
+        }, {
+            latLng: [37.739651, -121.425223],
+            name: 'Tracy',
+            runCommand: '\\\\tracyit02'
+        }, {
+            latLng: [37.338208, -121.886329],
+            name: 'San Jose',
+            runCommand: '\\\\sjoprntprd02'
+        }, {
+            latLng: [38.819752, -77.073378],
+            name: 'Rosemont',
+            runCommand: '\\\\andps01'
+        }, {
+            latLng: [38.969555, -77.386098],
+            name: 'Herdon',
+            runCommand: '\\\\atlprntprd01'
+        }, {
+            latLng: [40.712784, -74.005941],
+            name: 'New York',
+            runCommand: '\\\\nycprntprd01'
+        }, {
+            latLng: [32.776664, -96.796988],
+            name: 'Dallas',
+            runCommand: '\\\\ausdc02'
+        }];
         $(function() {
             $('#map').vectorMap({
                 map: 'us_lcc',
-                /*onRegionClick: function(event, code) {
-                    if (code == "CA") {
-                        window.location = 'canada'
-                    }
-                    if (code == "US") {
-                        window.location = 'united-states'
-                    }
-                },*/
+				// Set the colors for the markers.
                 markerStyle: {
                     initial: {
                         fill: '#d71920',
@@ -37,18 +69,14 @@
                         //image: '../../favicon.ico'
                     }
                 },
-                markers: [{
-                    latLng: [42.678814, -71.199523],
-                    name: 'Andover'
-                }, {
-                    latLng: [33.748995, -84.387982],
-                    name: 'Atlanta'
-                }, {
-                    latLng: [30.459514, -97.751316],
-                    name: 'Austin'
-                }, {
-                    latLng: []
-                }],
+                markers: markers,
+                onMarkerClick: function(event, index) {
+                    // Apply actions depending on locations.
+                    //Show an alert with run command.
+                    alert("Paste this in the Run dialog. " + markers[index].runCommand);
+                    //Open a local file in a new tab.
+                    //window.open('file:///local/file/here')
+                }
             });
         });
     </script>
