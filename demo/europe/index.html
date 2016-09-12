@@ -11,41 +11,101 @@
 </head>
 
 <body>
-    <div class="title">
-        <div>
-            <h1 class="page-title">Select a Region</h1> </div>
-    </div>
-    <div id="world-map" style="width: 70%; height: 750px; margin:auto; padding:10px;"></div>
+    <div id="map" style="width: 70%; height: 750px; margin:auto; padding:10px;"></div>
     <script>
+        var width = $(window).width() - 20;
+        $("#map").width(width);
+        var height = $(window).height() - 20;
+        $("#map").height(height);
+    </script>
+    <script>
+        var markers = [{
+            latLng: [52.370216, 4.895168],
+            name: 'Amsterdam',
+            runCommand: ''
+        }, {
+            latLng: [25.204849, 55.270783],
+            name: 'Dubai',
+            runCommand: ''
+        }, {
+            latLng: [51.507351, -0.127758],
+            name: 'London EBC',
+            runCommand: ''
+        }, {
+            latLng: [45.465422, 9.185924],
+            name: 'Milan',
+            runCommand: ''
+        }, {
+            latLng: [55.755826, 37.6173],
+            name: 'Moscow',
+            runCommand: ''
+        }, {
+            latLng: [48.135125, 11.581981],
+            name: 'Munich',
+            runCommand: ''
+        }, {
+            latLng: [48.856614, 2.352222],
+            name: 'Paris',
+            runCommand: ''
+        }, {
+            latLng: [51.92442, 4.477733],
+            name: 'Rotterdam',
+            runCommand: ''
+        }, {
+            latLng: [51.510538, -0.595041],
+            name: 'Slough',
+            runCommand: ''
+        }, {
+            latLng: [47.376887, 8.541694],
+            name: 'Zurich',
+            runCommand: ''
+        }];
         $(function() {
-            $('#world-map').vectorMap({
+            $('#map').vectorMap({
                 map: 'europe_mill',
-                onRegionClick: function(event, code) {
-                    if (code == "RU") {
-                        window.location = 'russia'
-                    }
-                    if (code == "GB") {
-                        window.location = 'united-kingdom'
-                    }
-                    if (code == "NL") {
-                        window.location = 'netherlands'
-                    }
-                    if (code == "DE") {
-                        window.location = 'germany'
-                    }
-                    if (code == "BE") {
-                        window.location = 'belgium'
-                    }
-                    if (code == "DK") {
-                        window.location = 'denmark'
-                    }
-					if (code == "FI") {
-                        window.location = 'finland'
-                    }
-					if (code == "FR") {
-                        window.location = 'france'
+                /* Too many options, using markers instead. Also, if needed later, change to switch case.
+                            onRegionClick: function(event, code) {
+                                if (code == "RU") {
+                                    window.location = 'russia'
+                                }
+                                if (code == "GB") {
+                                    window.location = 'united-kingdom'
+                                }
+                                if (code == "NL") {
+                                    window.location = 'netherlands'
+                                }
+                                if (code == "DE") {
+                                    window.location = 'germany'
+                                }
+                                if (code == "BE") {
+                                    window.location = 'belgium'
+                                }
+                                if (code == "DK") {
+                                    window.location = 'denmark'
+                                }
+                                if (code == "FI") {
+                                    window.location = 'finland'
+                                }
+                                if (code == "FR") {
+                                    window.location = 'france'
+                                }
+                            },*/
+                // Set the colors for the markers.
+                markerStyle: {
+                    initial: {
+                        fill: '#d71920',
+                        stroke: '#717f8c',
+                        //image: '../../favicon.ico'
                     }
                 },
+                markers: markers,
+                onMarkerClick: function(event, index) {
+                    // Apply actions depending on locations.
+                    //Show an alert with run command.
+                    alert("Paste this in the Run dialog. " + markers[index].runCommand);
+                    //Open a local file in a new tab.
+                    //window.open('file:///local/file/here')
+                }
             });
         });
     </script>

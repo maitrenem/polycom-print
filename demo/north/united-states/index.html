@@ -3,41 +3,80 @@
 
 <head>
     <title>Polycom Printers</title>
+    <meta name="author" content="Izac Lorimer">
+    <!-- Created in 2016 for Polycom Inc. -->
     <link rel="stylesheet" href="../../assets/css/jquery-jvectormap-2.0.3.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="../../assets/css/global.css" type="text/css" />
     <script src="../../assets/js/jquery.js"></script>
     <script src="../../assets/js/jquery-jvectormap-2.0.3.min.js"></script>
-    <script src="../../assets/maps/jquery-jvectormap-ca-lcc.js"></script>
+    <script src="../../assets/maps/jquery-jvectormap-us-lcc.js"></script>
 </head>
 
 <body>
-    <div class="title">
-        <div>
-            <h1 class="page-title">Select a Country</h1> </div>
-    </div>
     <div id="map" style="width: 70%; height: 750px; margin:auto; padding:10px;"></div>
     <script>
+        var width = $(window).width() - 20;
+        $("#map").width(width);
+        var height = $(window).height() - 20;
+        $("#map").height(height);
+    </script>
+    <script>
+        var markers = [{
+            latLng: [42.678814, -71.199523],
+            name: 'Andover',
+            runCommand: '\\\\andpRntprd01'
+        }, {
+            latLng: [30.459514, -97.751316],
+            name: 'Austin',
+            runCommand: '\\\\auswpprnt01v'
+        }, {
+            latLng: [39.836653, -105.037205],
+            name: 'Westminster',
+            runCommand: '\\\\Wstwpprnt01v'
+        }, {
+            latLng: [37.739651, -121.425223],
+            name: 'Tracy',
+            runCommand: '\\\\tracyit02'
+        }, {
+            latLng: [37.338208, -121.886329],
+            name: 'San Jose',
+            runCommand: '\\\\sjoprntprd02'
+        }, {
+            latLng: [38.819752, -77.073378],
+            name: 'Rosemont',
+            runCommand: '\\\\andps01'
+        }, {
+            latLng: [38.969555, -77.386098],
+            name: 'Herdon',
+            runCommand: '\\\\atlprntprd01'
+        }, {
+            latLng: [40.712784, -74.005941],
+            name: 'New York',
+            runCommand: '\\\\nycprntprd01'
+        }, {
+            latLng: [32.776664, -96.796988],
+            name: 'Dallas',
+            runCommand: '\\\\ausdc02'
+        }];
         $(function() {
             $('#map').vectorMap({
-                map: 'ca_lcc',
-                onRegionClick: function(event, code) {
-                    if (code == "CA") {
-                        window.location = 'canada'
-                    }
-                    if (code == "US") {
-                        window.location = 'united-states'
-                    }
-                },
+                map: 'us_lcc',
+				// Set the colors for the markers.
                 markerStyle: {
                     initial: {
-                        fill: '#F8E23B',
-                        stroke: '#383f47'
+                        fill: '#d71920',
+                        stroke: '#717f8c',
+                        //image: '../../favicon.ico'
                     }
                 },
-                markers: [{
-                    latLng: [43.65, -79.38],
-                    name: 'Toronto, Ontario'
-                }],
+                markers: markers,
+                onMarkerClick: function(event, index) {
+                    // Apply actions depending on locations.
+                    //Show an alert with run command.
+                    alert("Paste this in the Run dialog. " + markers[index].runCommand);
+                    //Open a local file in a new tab.
+                    //window.open('file:///local/file/here')
+                }
             });
         });
     </script>
