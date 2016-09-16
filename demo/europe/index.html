@@ -22,43 +22,43 @@
         var markers = [{
             latLng: [52.370216, 4.895168],
             name: 'Amsterdam',
-            runCommand: ''
+            runCommand: '\\\\amsappprd01'
         }, {
             latLng: [25.204849, 55.270783],
             name: 'Dubai',
-            runCommand: ''
+            runCommand: '\\\\pdub1s02'
         }, {
             latLng: [51.507351, -0.127758],
             name: 'London EBC',
-            runCommand: ''
+            runCommand: '\\\\londcprd01'
         }, {
             latLng: [45.465422, 9.185924],
             name: 'Milan',
-            runCommand: ''
+            runCommand: '\\\\mildcprd01'
         }, {
             latLng: [55.755826, 37.6173],
             name: 'Moscow',
-            runCommand: ''
+            runCommand: '\\\\mosappprd01'
         }, {
             latLng: [48.135125, 11.581981],
             name: 'Munich',
-            runCommand: ''
+            runCommand: '\\\\munappprd01'
         }, {
             latLng: [48.856614, 2.352222],
             name: 'Paris',
-            runCommand: ''
+            runCommand: '\\\\parappprd01'
         }, {
             latLng: [51.92442, 4.477733],
             name: 'Rotterdam',
-            runCommand: ''
+            runCommand: '\\\\amsapprd01'
         }, {
             latLng: [51.510538, -0.595041],
             name: 'Slough',
-            runCommand: ''
+            runCommand: '\\\\sloprintprd01'
         }, {
             latLng: [47.376887, 8.541694],
             name: 'Zurich',
-            runCommand: ''
+            runCommand: '\\\\pzurls04'
         }];
         $(function() {
             $('#map').vectorMap({
@@ -102,7 +102,7 @@
                 onMarkerClick: function(event, index) {
                     // Apply actions depending on locations.
                     //Show an alert with run command.
-                    alert("Paste this in the Run dialog. " + markers[index].runCommand);
+                    prompt("Paste this in the Run dialog. (Win + R)", markers[index].runCommand);
                     //Open a local file in a new tab.
                     //window.open('file:///local/file/here')
                 }

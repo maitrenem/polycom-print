@@ -19,16 +19,29 @@
         $("#map").height(height);
     </script>
     <script>
+	var markers = [{
+		latLng: [-33.86882,151.209296],
+		name: 'Sydney',
+		runCommand: '\\\\sydfileprd02'
+	}];
         $(function() {
             $('#map').vectorMap({
                 map: 'oceania_mill',
-                onRegionClick: function(event, code) {
-                    if (code == "AU") {
-                        window.location = 'australia'
+				// Set the colors for the markers.
+                markerStyle: {
+                    initial: {
+                        fill: '#d71920',
+                        stroke: '#717f8c',
+                        //image: '../../favicon.ico'
                     }
-                    if (code == "NZ") {
-                        window.location = 'new-zealand'
-                    }
+                },
+                markers: markers,
+                onMarkerClick: function(event, index) {
+                    // Apply actions depending on locations.
+                    //Show an alert with run command.
+                    prompt("Paste this in the Run dialog. (Win + R)", markers[index].runCommand);
+                    //Open a local file in a new tab.
+                    //window.open('file:///local/file/here')
                 },
             });
         });
