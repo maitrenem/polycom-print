@@ -73,7 +73,7 @@
                 onMarkerClick: function(event, index) {
                     // Apply actions depending on locations.
                     //Show an alert with run command.
-                    alert("Paste this in the Run dialog. " + markers[index].runCommand);
+                    prompt("Paste this in the Run dialog. (Win + R)", markers[index].runCommand);
                     //Open a local file in a new tab.
                     //window.open('file:///local/file/here')
                 }
