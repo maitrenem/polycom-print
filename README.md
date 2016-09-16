@@ -1,6 +1,5 @@
 # polycom-print
-Small website to find your local printer. Made for Polycom Inc. by Izac Lorimer.
-It is still in the process of being made. Please report any issues.
+Small website to find your local printer. Made for Polycom Inc. by Izac Lorimer. It is still in the process of being made, but release 0.1 is out and ready to use. Please report any issues.
 
 Utilizes [jVectorMap](http://jvectormap.com/) which is licensed under [GNU GPL](https://opensource.org/licenses/gpl-3.0.html).
 
